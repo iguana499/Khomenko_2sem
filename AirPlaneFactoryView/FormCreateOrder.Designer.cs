@@ -41,37 +41,37 @@
             // labelProduct
             // 
             this.labelProduct.AutoSize = true;
-            this.labelProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelProduct.Location = new System.Drawing.Point(12, 17);
+            this.labelProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelProduct.Location = new System.Drawing.Point(12, 19);
             this.labelProduct.Name = "labelProduct";
-            this.labelProduct.Size = new System.Drawing.Size(65, 17);
+            this.labelProduct.Size = new System.Drawing.Size(59, 15);
             this.labelProduct.TabIndex = 0;
-            this.labelProduct.Text = "Изделие";
+            this.labelProduct.Text = "Самолёт";
             // 
             // labelCount
             // 
             this.labelCount.AutoSize = true;
-            this.labelCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelCount.Location = new System.Drawing.Point(11, 39);
+            this.labelCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelCount.Location = new System.Drawing.Point(12, 43);
             this.labelCount.Name = "labelCount";
-            this.labelCount.Size = new System.Drawing.Size(86, 17);
+            this.labelCount.Size = new System.Drawing.Size(76, 15);
             this.labelCount.TabIndex = 1;
             this.labelCount.Text = "Количество";
             // 
             // labelSum
             // 
             this.labelSum.AutoSize = true;
-            this.labelSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelSum.Location = new System.Drawing.Point(12, 62);
+            this.labelSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelSum.Location = new System.Drawing.Point(12, 66);
             this.labelSum.Name = "labelSum";
-            this.labelSum.Size = new System.Drawing.Size(50, 17);
+            this.labelSum.Size = new System.Drawing.Size(45, 15);
             this.labelSum.TabIndex = 2;
             this.labelSum.Text = "Сумма";
             // 
             // buttonSave
             // 
             this.buttonSave.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSave.Location = new System.Drawing.Point(169, 106);
+            this.buttonSave.Location = new System.Drawing.Point(103, 87);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(250, 106);
+            this.buttonCancel.Location = new System.Drawing.Point(244, 87);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 4;
@@ -116,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 141);
+            this.ClientSize = new System.Drawing.Size(383, 118);
             this.Controls.Add(this.textBoxSum);
             this.Controls.Add(this.comboBoxProduct);
             this.Controls.Add(this.textBoxCount);

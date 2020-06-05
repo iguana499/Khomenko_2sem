@@ -39,20 +39,20 @@
             // labelCom
             // 
             this.labelCom.AutoSize = true;
-            this.labelCom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelCom.Location = new System.Drawing.Point(-1, 9);
+            this.labelCom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelCom.Location = new System.Drawing.Point(-1, 16);
             this.labelCom.Name = "labelCom";
-            this.labelCom.Size = new System.Drawing.Size(81, 17);
+            this.labelCom.Size = new System.Drawing.Size(73, 15);
             this.labelCom.TabIndex = 0;
             this.labelCom.Text = "Компонент";
             // 
             // labelKol
             // 
             this.labelKol.AutoSize = true;
-            this.labelKol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelKol.Location = new System.Drawing.Point(-1, 34);
+            this.labelKol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelKol.Location = new System.Drawing.Point(-1, 40);
             this.labelKol.Name = "labelKol";
-            this.labelKol.Size = new System.Drawing.Size(86, 17);
+            this.labelKol.Size = new System.Drawing.Size(76, 15);
             this.labelKol.TabIndex = 1;
             this.labelKol.Text = "Количество";
             // 
@@ -60,7 +60,7 @@
             // 
             this.textBoxCount.Location = new System.Drawing.Point(86, 35);
             this.textBoxCount.Name = "textBoxCount";
-            this.textBoxCount.Size = new System.Drawing.Size(236, 20);
+            this.textBoxCount.Size = new System.Drawing.Size(365, 20);
             this.textBoxCount.TabIndex = 2;
             // 
             // comboBoxComponent
@@ -68,12 +68,12 @@
             this.comboBoxComponent.FormattingEnabled = true;
             this.comboBoxComponent.Location = new System.Drawing.Point(86, 10);
             this.comboBoxComponent.Name = "comboBoxComponent";
-            this.comboBoxComponent.Size = new System.Drawing.Size(235, 21);
+            this.comboBoxComponent.Size = new System.Drawing.Size(365, 21);
             this.comboBoxComponent.TabIndex = 3;
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(113, 65);
+            this.buttonSave.Location = new System.Drawing.Point(147, 65);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 4;
@@ -83,7 +83,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(194, 65);
+            this.buttonCancel.Location = new System.Drawing.Point(290, 65);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 5;
@@ -95,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 100);
+            this.ClientSize = new System.Drawing.Size(463, 100);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.comboBoxComponent);

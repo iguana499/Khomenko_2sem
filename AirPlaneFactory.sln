@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirPlaneFactoryBusinessLogi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirPlaneFactoryListImplement", "FurnitureShopListImplement\AirPlaneFactoryListImplement.csproj", "{9F863F29-B0D6-48BF-A183-EE124B66B478}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirPlaneFactoryShopView", "FurnitureShopView\AirPlaneFactoryShopView.csproj", "{B9BCC2F9-87D7-4874-BBE5-97F65245DF67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirPlaneFactoryView", "FurnitureShopView\AirPlaneFactoryView.csproj", "{B9BCC2F9-87D7-4874-BBE5-97F65245DF67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirPlaneFactoryFileImplement", "AirPlaneShopFileImplement\AirPlaneFactoryFileImplement.csproj", "{BC16ABA0-5F1F-4E6D-86B9-BB53DBC0221D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{B9BCC2F9-87D7-4874-BBE5-97F65245DF67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9BCC2F9-87D7-4874-BBE5-97F65245DF67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9BCC2F9-87D7-4874-BBE5-97F65245DF67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC16ABA0-5F1F-4E6D-86B9-BB53DBC0221D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC16ABA0-5F1F-4E6D-86B9-BB53DBC0221D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC16ABA0-5F1F-4E6D-86B9-BB53DBC0221D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC16ABA0-5F1F-4E6D-86B9-BB53DBC0221D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

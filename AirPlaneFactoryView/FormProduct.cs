@@ -9,16 +9,16 @@ using Unity;
 
 namespace AirPlaneFactoryView
 {
-    public partial class Formproduct : Form
+    public partial class FormProduct : Form
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
         public int Id { set { id = value; } }
-        private readonly IproductLogic logic;
+        private readonly IProductLogic logic;
         private int? id;
         private Dictionary<int, (string, int)> productComponents;
 
-        public Formproduct(IproductLogic service)
+        public FormProduct(IProductLogic service)
         {
             InitializeComponent();
             dataGridView.Columns.Add("Id", "Id");
@@ -28,21 +28,21 @@ namespace AirPlaneFactoryView
             dataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             this.logic = service;
         }
-        private void Formproduct_Load(object sender, EventArgs e)
+        private void FormProduct_Load(object sender, EventArgs e)
         {
             if (id.HasValue)
             {
                 try
                 {
-                    productViewModel view = logic.Read(new productBindingModel
+                    ProductViewModel view = logic.Read(new ProductBindingModel
                     {
                         Id = id.Value
                     })?[0];
                     if (view != null)
                     {
-                        textBoxName.Text = view.productName;
+                        textBoxName.Text = view.ProductName;
                         textBoxPrice.Text = view.Price.ToString();
-                        productComponents = view.productComponents;
+                        productComponents = view.ProductComponents;
                         LoadData();
                     }
                 }
@@ -78,7 +78,7 @@ namespace AirPlaneFactoryView
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormproductComponent>();
+            var form = Container.Resolve<FormProductComponent>();
             if (form.ShowDialog() == DialogResult.OK)
             {
                 if (productComponents.ContainsKey(form.Id))
@@ -96,7 +96,7 @@ namespace AirPlaneFactoryView
         {
             if (dataGridView.SelectedRows.Count == 1)
             {
-                var form = Container.Resolve<FormproductComponent>();
+                var form = Container.Resolve<FormProductComponent>();
                 int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
                 form.Id = id;
                 form.Count = productComponents[id].Item2;
@@ -155,12 +155,12 @@ namespace AirPlaneFactoryView
             }
             try
             {
-                logic.CreateOrUpdate(new productBindingModel
+                logic.CreateOrUpdate(new ProductBindingModel
                 {
                     Id = id,
-                    productName = textBoxName.Text,
+                    ProductName = textBoxName.Text,
                     Price = Convert.ToDecimal(textBoxPrice.Text),
-                    productComponents = productComponents
+                    ProductComponents = productComponents
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);

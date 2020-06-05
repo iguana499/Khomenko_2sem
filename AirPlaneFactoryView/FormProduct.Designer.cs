@@ -56,10 +56,11 @@
             this.groupBox.Size = new System.Drawing.Size(673, 303);
             this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
-            this.groupBox.Text = "Компоненты";
+            this.groupBox.Text = "Запчасти";
             // 
             // dataGridView
             // 
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(20, 20);
             this.dataGridView.Name = "dataGridView";
@@ -68,9 +69,9 @@
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(581, 120);
+            this.buttonRef.Location = new System.Drawing.Point(562, 181);
             this.buttonRef.Name = "buttonRef";
-            this.buttonRef.Size = new System.Drawing.Size(75, 23);
+            this.buttonRef.Size = new System.Drawing.Size(97, 48);
             this.buttonRef.TabIndex = 3;
             this.buttonRef.Text = "Обновить";
             this.buttonRef.UseVisualStyleBackColor = true;
@@ -78,9 +79,9 @@
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(581, 91);
+            this.buttonDel.Location = new System.Drawing.Point(562, 129);
             this.buttonDel.Name = "buttonDel";
-            this.buttonDel.Size = new System.Drawing.Size(75, 23);
+            this.buttonDel.Size = new System.Drawing.Size(97, 46);
             this.buttonDel.TabIndex = 2;
             this.buttonDel.Text = "Удалить";
             this.buttonDel.UseVisualStyleBackColor = true;
@@ -88,9 +89,9 @@
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(581, 62);
+            this.buttonUpd.Location = new System.Drawing.Point(562, 73);
             this.buttonUpd.Name = "buttonUpd";
-            this.buttonUpd.Size = new System.Drawing.Size(75, 23);
+            this.buttonUpd.Size = new System.Drawing.Size(97, 50);
             this.buttonUpd.TabIndex = 1;
             this.buttonUpd.Text = "Изменить";
             this.buttonUpd.UseVisualStyleBackColor = true;
@@ -98,9 +99,9 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(581, 33);
+            this.buttonAdd.Location = new System.Drawing.Point(562, 20);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.Size = new System.Drawing.Size(97, 47);
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -109,20 +110,20 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelName.Location = new System.Drawing.Point(3, 6);
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelName.Location = new System.Drawing.Point(9, 10);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(72, 17);
+            this.labelName.Size = new System.Drawing.Size(64, 15);
             this.labelName.TabIndex = 1;
             this.labelName.Text = "Название";
             // 
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
-            this.labelPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelPrice.Location = new System.Drawing.Point(12, 32);
+            this.labelPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelPrice.Location = new System.Drawing.Point(12, 36);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(43, 17);
+            this.labelPrice.Size = new System.Drawing.Size(37, 15);
             this.labelPrice.TabIndex = 2;
             this.labelPrice.Text = "Цена";
             // 
@@ -142,7 +143,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(459, 396);
+            this.buttonSave.Location = new System.Drawing.Point(529, 385);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 4;
@@ -152,7 +153,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(540, 396);
+            this.buttonCancel.Location = new System.Drawing.Point(610, 385);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 5;
@@ -164,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 454);
+            this.ClientSize = new System.Drawing.Size(698, 417);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxPrice);
@@ -173,8 +174,8 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.groupBox);
             this.Name = "FormProduct";
-            this.Text = "Изделие";
-            this.Load += new System.EventHandler(this.FormForniture_Load);
+            this.Text = "Самолёт";
+            this.Load += new System.EventHandler(this.FormProduct_Load);
             this.groupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);

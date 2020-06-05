@@ -144,6 +144,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AirPlaneShopFileImplement\AirPlaneFactoryFileImplement.csproj">
+      <Project>{bc16aba0-5f1f-4e6d-86b9-bb53dbc0221d}</Project>
+      <Name>AirPlaneFactoryFileImplement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FurnitureShopBusinessLogic\AirPlaneFactoryBusinessLogic.csproj">
       <Project>{84008e46-82de-4549-a7ff-1d1c442ed5f4}</Project>
       <Name>AirPlaneFactoryBusinessLogic</Name>

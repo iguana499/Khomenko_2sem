@@ -1,7 +1,6 @@
 ﻿using System;
 using AirPlaneFactoryBusinessLogic.BindingModels;
 using AirPlaneFactoryBusinessLogic.Interfaces;
-using System;
 using System.Windows.Forms;
 using Unity;
 using AirPlaneFactoryBusinessLogic.ViewModels;
@@ -122,6 +121,10 @@ namespace AirPlaneFactoryView
         {
             var form = Container.Resolve<FormProducts>();
             form.ShowDialog();
+        }
+        private void buttonStorage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
