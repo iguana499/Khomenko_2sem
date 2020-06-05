@@ -23,5 +23,9 @@ namespace AirPlaneFactoryDatabaseImplement.Models
         public DateTime DateCreate { get; set; }
         public DateTime? DateImplement { get; set; }
         public virtual Product Products { get; set; }
+        public virtual Implementer Implementer { set; get; }
+        public int? ImplementerId { set; get; }
+        public virtual Client Client { set; get; }
+        public string ImplementerFIO { set; get; }
     }
 }

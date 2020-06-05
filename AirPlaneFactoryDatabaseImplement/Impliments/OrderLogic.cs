@@ -1,4 +1,5 @@
 ﻿using AirPlaneFactoryBusinessLogic.BindingModels;
+using AirPlaneFactoryBusinessLogic.Enums;
 using AirPlaneFactoryBusinessLogic.Interfaces;
 using AirPlaneFactoryBusinessLogic.ViewModels;
 using AirPlaneFactoryDatabaseImplement.Models;
@@ -35,6 +36,8 @@ namespace AirPlaneFactoryDatabaseImplement.Impliments
                 element.ProductId = model.ProductId == 0 ? element.ProductId : model.ProductId;
                 element.Count = model.Count;
                 element.ClientFIO = model.ClientFIO;
+                element.ImplementerFIO = model.ImplementerFIO;
+                element.ImplementerId = model.ImplementerId == 0 ? element.ImplementerId : model.ImplementerId; ;
                 element.Sum = model.Sum;
                 element.Status = model.Status;
                 element.DateCreate = model.DateCreate;
@@ -63,11 +66,12 @@ model.Id);
         {
             using (var context = new AirPlaneFactoryDatabase())
             {
-                return context.Orders
-                .Where(rec => model == null || (rec.Id == model.Id && model.Id.HasValue)
-                || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo) ||
-                (model.ClientId.HasValue && rec.ClientId == model.ClientId))
-                .Select(rec => new OrderViewModel
+                return context.Orders.Where(rec => model == null || rec.Id == model.Id || (rec.DateCreate >= model.DateFrom)
+                && (rec.DateCreate <= model.DateTo) || (model.ClientId == rec.ClientId) ||
+                (model.FreeOrder.HasValue && model.FreeOrder.Value && !(rec.ImplementerFIO != null)) ||
+                (model.ImplementerId.HasValue && rec.ImplementerId == model.ImplementerId.Value && rec.Status == OrderStatus.Выполняется))
+                .Include(ord => ord.Products)
+                .Select(rec => new OrderViewModel()
                 {
                     Id = rec.Id,
                     ClientId = rec.ClientId,
@@ -75,13 +79,14 @@ model.Id);
                     ClientFIO = rec.ClientFIO,
                     Count = rec.Count,
                     Sum = rec.Sum,
+                    ImplementerId = rec.ImplementerId,
+                    ImplementerFIO = rec.Implementer.ImplementerFIO,
                     Status = rec.Status,
                     DateCreate = rec.DateCreate,
                     DateImplement = rec.DateImplement,
                     ProductName = context.Products.FirstOrDefault(recS => recS.Id ==
                     rec.ProductId).ProductName,
-                })
-            .ToList();
+                }).ToList();
             }
         }
     }

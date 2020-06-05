@@ -26,6 +26,8 @@ namespace AirPlaneFactoryBusinessLogic.ViewModels
         [DataMember]
         [DisplayName("Сумма")]
         public decimal Sum { get; set; }
+        [DisplayName("Рабочий")]
+        public string ImplementerFIO { set; get; }
         [DataMember]
         [DisplayName("Статус")]
         public OrderStatus Status { get; set; }
@@ -35,6 +37,7 @@ namespace AirPlaneFactoryBusinessLogic.ViewModels
         [DataMember]
         [DisplayName("Дата выполнения")]
         public DateTime? DateImplement { get; set; }
+        public int? ImplementerId { set; get; }
 
     }
 }

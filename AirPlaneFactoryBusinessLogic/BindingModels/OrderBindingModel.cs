@@ -10,6 +10,8 @@ namespace AirPlaneFactoryBusinessLogic.BindingModels
         public int? Id { get; set; }
         public int ProductId { get; set; }
         public int? ClientId { get; set; }
+        public int? ImplementerId { get; set; }
+        public string ImplementerFIO { set; get; }
         public string ClientFIO { set; get; }
         public int Count { get; set; }
         public decimal Sum { get; set; }
@@ -18,5 +20,6 @@ namespace AirPlaneFactoryBusinessLogic.BindingModels
         public DateTime? DateImplement { get; set; }
         public DateTime? DateFrom { get; set; }
         public DateTime? DateTo { get; set; }
+        public bool? FreeOrder { get; set; }
     }
 }

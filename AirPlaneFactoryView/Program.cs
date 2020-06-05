@@ -24,6 +24,8 @@ namespace AirPlaneFactoryView
             var currentContainer = new UnityContainer();
             currentContainer.RegisterType<IComponentLogic, ComponentLogic>(new
            HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IImplementerLogic, ImplementerLogic>(new
+           HierarchicalLifetimeManager());
             currentContainer.RegisterType<IOrderLogic, OrderLogic>(new
            HierarchicalLifetimeManager());
             currentContainer.RegisterType<IProductLogic, ProductLogic>(new

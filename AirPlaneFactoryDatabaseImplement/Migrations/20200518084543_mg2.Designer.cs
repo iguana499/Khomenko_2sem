@@ -4,14 +4,16 @@ using AirPlaneFactoryDatabaseImplement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AirPlaneFactoryDatabaseImplement.Migrations
 {
     [DbContext(typeof(AirPlaneFactoryDatabase))]
-    partial class AirPlaneFactoryDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20200518084543_mg2")]
+    partial class mg2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,7 +79,7 @@ namespace AirPlaneFactoryDatabaseImplement.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Implementers");
+                    b.ToTable("Implementer");
                 });
 
             modelBuilder.Entity("AirPlaneFactoryDatabaseImplement.Models.Order", b =>
