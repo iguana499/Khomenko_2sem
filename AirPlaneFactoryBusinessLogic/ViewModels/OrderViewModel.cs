@@ -4,40 +4,43 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Runtime.Serialization;
+using AirPlaneFactoryBusinessLogic.Attributes;
 
 namespace AirPlaneFactoryBusinessLogic.ViewModels
 {
-    public class OrderViewModel
+    public class OrderViewModel : BaseViewModel
     {
-        public int Id { get; set; }
         [DataMember]
         public int? ClientId { get; set; }
         [DataMember]
         public int ProductId { get; set; }
+        [Column(title: "Клиент", width: 150)]
         [DataMember]
-        [DisplayName("Клиент")]
         public string ClientFIO { get; set; }
+        [Column(title: "Изделие", gridViewAutoSize: GridViewAutoSize.Fill)]
         [DataMember]
-        [DisplayName("Изделие")]
         public string ProductName { get; set; }
+        [Column(title: "Количество", width: 100)]
         [DataMember]
-        [DisplayName("Количество")]
         public int Count { get; set; }
+        [Column(title: "Сумма", width: 80)]
         [DataMember]
-        [DisplayName("Сумма")]
         public decimal Sum { get; set; }
-        [DisplayName("Рабочий")]
+        [Column(title: "Исполнитель", width: 70)]
+        [DataMember]
         public string ImplementerFIO { set; get; }
+        [Column(title: "Статус", width: 100)]
         [DataMember]
-        [DisplayName("Статус")]
         public OrderStatus Status { get; set; }
+        [Column(title: "Дата создания", width: 100)]
         [DataMember]
-        [DisplayName("Дата создания")]
         public DateTime DateCreate { get; set; }
+        [Column(title: "Дата выполнения", width: 100)]
         [DataMember]
-        [DisplayName("Дата выполнения")]
         public DateTime? DateImplement { get; set; }
         public int? ImplementerId { set; get; }
-
+        public override List<string> Properties() => new List<string> { "Id",
+        "ClientFIO", "ProductName", "ImplementerFIO", "Count", "Sum", "Status", "DateCreate",
+        "DateImplement" };
     }
 }
