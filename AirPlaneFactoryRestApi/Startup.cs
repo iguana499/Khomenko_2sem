@@ -27,6 +27,7 @@ namespace AirPlaneFactoryRestApi
         // This method gets called by the runtime. Use this method to add services to the
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IMessageInfoLogic, MessageInfoLogic>();
             services.AddTransient<IClientLogic, ClientLogic>();
             services.AddTransient<IOrderLogic, OrderLogic>();
             services.AddTransient<IProductLogic, ProductLogic>();

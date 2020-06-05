@@ -1,6 +1,8 @@
 ﻿using AirPlaneFactoryBusinessLogic.BindingModels;
 using AirPlaneFactoryBusinessLogic.Enums;
+using AirPlaneFactoryBusinessLogic.HelperModels;
 using AirPlaneFactoryBusinessLogic.Interfaces;
+using MailChimp.Net.Logic;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,11 +11,13 @@ namespace AirPlaneFactoryBusinessLogic.BusnessLogics
 {
     public class MainLogic
     {
-        private readonly IOrderLogic orderLogic;
         private readonly object locker = new object();
-        public MainLogic(IOrderLogic orderLogic)
+        private readonly IOrderLogic orderLogic;
+        private readonly IClientLogic clientLogic;
+        public MainLogic(IOrderLogic orderLogic, IClientLogic clientLogic)
         {
             this.orderLogic = orderLogic;
+            this.clientLogic = clientLogic;
         }
         public void CreateOrder(CreateOrderBindingModel model)
         {
@@ -27,7 +31,17 @@ namespace AirPlaneFactoryBusinessLogic.BusnessLogics
                 DateCreate = DateTime.Now,
                 Status = OrderStatus.Принят
             });
+            MailLogic.MailSendAsync(new MailSendInfo
+            {
+                MailAddress = clientLogic.Read(new ClientBindingModel
+                {
+                    Id = model.ClientId
+                })?[0]?.Email,
+                Subject = $"Новый заказ",
+                Text = $"Заказ принят."
+            });
         }
+    
         public void TakeOrderInWork(ChangeStatusBindingModel model)
         {
             lock (locker)
@@ -62,37 +76,59 @@ namespace AirPlaneFactoryBusinessLogic.BusnessLogics
                     DateImplement = DateTime.Now,
                     Status = OrderStatus.Выполняется
                 });
+                MailLogic.MailSendAsync(new MailSendInfo
+                {
+                    MailAddress = clientLogic.Read(new ClientBindingModel
+                    {
+                        Id = order.ClientId
+                    })?[0]?.Email,
+                    Subject = $"Заказ №{order.Id}",
+                    Text = $"Заказ №{order.Id} передан в работу."
+                });
             }
         }
         public void FinishOrder(ChangeStatusBindingModel model)
         {
-            var order = orderLogic.Read(new OrderBindingModel
+            lock (locker)
             {
-                Id = model.OrderId
-            })?[0];
-            if (order == null)
-            {
-                throw new Exception("Не найден заказ");
+                var order = orderLogic.Read(new OrderBindingModel
+                {
+                    Id = model.OrderId
+                })?[0];
+                if (order == null)
+                {
+                    throw new Exception("Не найден заказ");
+                }
+                if (order.Status != OrderStatus.Выполняется)
+                {
+                    throw new Exception("Заказ не в статусе \"Выполняется\"");
+                }
+                orderLogic.CreateOrUpdate(new OrderBindingModel
+                {
+                    Id = order.Id,
+                    ProductId = order.ProductId,
+                    ClientId = order.ClientId,
+                    ClientFIO = order.ClientFIO,
+                    Count = order.Count,
+                    ImplementerFIO = order.ImplementerFIO,
+                    ImplementerId = order.ImplementerId.Value,
+                    Sum = order.Sum,
+                    DateCreate = order.DateCreate,
+                    DateImplement = order.DateImplement,
+                    Status = OrderStatus.Готов
+                });
+                MailLogic.MailSendAsync(new MailSendInfo
+                {
+                    MailAddress = clientLogic.Read(new ClientBindingModel
+                    {
+                        Id = order.ClientId
+                    })?[0]?.Email,
+                    Subject = $"Заказ №{order.Id}",
+                    Text = $"Заказ №{order.Id} готов."
+                });
             }
-            if (order.Status != OrderStatus.Выполняется)
-            {
-                throw new Exception("Заказ не в статусе \"Выполняется\"");
-            }
-            orderLogic.CreateOrUpdate(new OrderBindingModel
-            {
-                Id = order.Id,
-                ProductId = order.ProductId,
-                ClientId = order.ClientId,
-                ClientFIO = order.ClientFIO,
-                Count = order.Count,
-                ImplementerFIO = order.ImplementerFIO,
-                ImplementerId = order.ImplementerId.Value,
-                Sum = order.Sum,
-                DateCreate = order.DateCreate,
-                DateImplement = order.DateImplement,
-                Status = OrderStatus.Готов
-            });
         }
+    
         public void PayOrder(ChangeStatusBindingModel model)
         {
             var order = orderLogic.Read(new OrderBindingModel
@@ -120,6 +156,15 @@ namespace AirPlaneFactoryBusinessLogic.BusnessLogics
                 DateCreate = order.DateCreate,
                 DateImplement = order.DateImplement,
                 Status = OrderStatus.Оплачен
+            });
+            MailLogic.MailSendAsync(new MailSendInfo
+            {
+                MailAddress = clientLogic.Read(new ClientBindingModel
+                {
+                    Id = order.ClientId
+                })?[0]?.Email,
+                Subject = $"Заказ №{order.Id}",
+                Text = $"Заказ №{order.Id} оплачен."
             });
         }
     }
