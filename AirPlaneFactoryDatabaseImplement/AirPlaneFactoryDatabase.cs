@@ -20,5 +20,6 @@ namespace AirPlaneFactoryDatabaseImplement
         public virtual DbSet<Product> Products { set; get; }
         public virtual DbSet<ProductComponent> ProductComponents { set; get; }
         public virtual DbSet<Order> Orders { set; get; }
+        public virtual DbSet<Client> Clients { set; get; }
     }
 }

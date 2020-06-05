@@ -15,11 +15,13 @@ namespace AirPlaneFactoryView
         public new IUnityContainer Container { get; set; }
         private readonly IProductLogic logicP;
         private readonly MainLogic logicM;
-        public FormCreateOrder(IProductLogic logicP, MainLogic logicM)                       
+        private readonly IClientLogic logicC;
+        public FormCreateOrder(IProductLogic logicP, MainLogic logicM, IClientLogic logicC)                       
         {                                              
             InitializeComponent();
             this.logicP = logicP;
             this.logicM = logicM;
+            this.logicC = logicC;
         }
         private void FormCreateOrder_Load(object sender, EventArgs e)
         {
@@ -33,6 +35,10 @@ namespace AirPlaneFactoryView
                     comboBoxProduct.DataSource = list;
                     comboBoxProduct.SelectedItem = null;
                 }
+                var listC = logicC.Read(null);
+                ComboBoxClient.DisplayMember = "ClientFIO";
+                ComboBoxClient.ValueMember = "Id";
+                ComboBoxClient.DataSource = listC;
             }
             catch (Exception ex)
             {
@@ -91,7 +97,9 @@ namespace AirPlaneFactoryView
                 {
                     ProductId = Convert.ToInt32(comboBoxProduct.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
-                    Sum = Convert.ToDecimal(textBoxSum.Text)
+                    Sum = Convert.ToDecimal(textBoxSum.Text),
+                    ClientId = Convert.ToInt32(ComboBoxClient.SelectedValue),
+                    ClientFIO = ComboBoxClient.Text
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);

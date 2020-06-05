@@ -11,6 +11,9 @@ namespace AirPlaneFactoryDatabaseImplement.Models
         public int Id { get; set; }
         public int ProductId { get; set; }
         [Required]
+        public int? ClientId { get; set; }
+        [Required]
+        public string ClientFIO { get; set; }
         public int Count { get; set; }
         [Required]
         public decimal Sum { get; set; }

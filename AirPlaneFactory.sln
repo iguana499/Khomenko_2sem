@@ -11,7 +11,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirPlaneFactoryView", "Furn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirPlaneShopFileImplement", "AirPlaneShopFileImplement\AirPlaneShopFileImplement.csproj", "{BC16ABA0-5F1F-4E6D-86B9-BB53DBC0221D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirPlaneFactoryDatabaseImplement", "ClassLibrary1\AirPlaneFactoryDatabaseImplement.csproj", "{61076AB5-BF9A-4AE9-BCAA-A6DDE8506E1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirPlaneFactoryDatabaseImplement", "ClassLibrary1\AirPlaneFactoryDatabaseImplement.csproj", "{61076AB5-BF9A-4AE9-BCAA-A6DDE8506E1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirPlaneFactoryRestApi", "AirPlaneFactoryRestApi\AirPlaneFactoryRestApi.csproj", "{F147C21B-1733-4123-90E7-F972B33AFE6E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9F863F29-B0D6-48BF-A183-EE124B66B478} = {9F863F29-B0D6-48BF-A183-EE124B66B478}
+		{FB401C81-5CC6-40FB-AEAD-AC74BD4639C7} = {FB401C81-5CC6-40FB-AEAD-AC74BD4639C7}
+		{B9BCC2F9-87D7-4874-BBE5-97F65245DF67} = {B9BCC2F9-87D7-4874-BBE5-97F65245DF67}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirPlaneFactoryClientView", "AirPlaneFactoryClientView\AirPlaneFactoryClientView.csproj", "{FB401C81-5CC6-40FB-AEAD-AC74BD4639C7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9F863F29-B0D6-48BF-A183-EE124B66B478} = {9F863F29-B0D6-48BF-A183-EE124B66B478}
+		{61076AB5-BF9A-4AE9-BCAA-A6DDE8506E1C} = {61076AB5-BF9A-4AE9-BCAA-A6DDE8506E1C}
+		{B9BCC2F9-87D7-4874-BBE5-97F65245DF67} = {B9BCC2F9-87D7-4874-BBE5-97F65245DF67}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +53,14 @@ Global
 		{61076AB5-BF9A-4AE9-BCAA-A6DDE8506E1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61076AB5-BF9A-4AE9-BCAA-A6DDE8506E1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61076AB5-BF9A-4AE9-BCAA-A6DDE8506E1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F147C21B-1733-4123-90E7-F972B33AFE6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F147C21B-1733-4123-90E7-F972B33AFE6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F147C21B-1733-4123-90E7-F972B33AFE6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F147C21B-1733-4123-90E7-F972B33AFE6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB401C81-5CC6-40FB-AEAD-AC74BD4639C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB401C81-5CC6-40FB-AEAD-AC74BD4639C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB401C81-5CC6-40FB-AEAD-AC74BD4639C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB401C81-5CC6-40FB-AEAD-AC74BD4639C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

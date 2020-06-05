@@ -9,6 +9,8 @@ namespace AirPlaneFactoryBusinessLogic.BindingModels
     {
         public int? Id { get; set; }
         public int ProductId { get; set; }
+        public int? ClientId { get; set; }
+        public string ClientFIO { set; get; }
         public int Count { get; set; }
         public decimal Sum { get; set; }
         public OrderStatus Status { get; set; }
