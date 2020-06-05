@@ -1,1 +1,0 @@
-# Khomenko_2sem
