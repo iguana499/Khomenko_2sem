@@ -7,6 +7,7 @@ using AirPlaneFactoryBusinessLogic.ViewModels;
 using System.Collections.Generic;
 using AirPlaneFactoryBusinessLogic.BusnessLogics;
 using AirPlaneFactoryListImplement.Models;
+using AbstractShopView;
 
 namespace AirPlaneFactoryView
 {
@@ -16,11 +17,13 @@ namespace AirPlaneFactoryView
         public new IUnityContainer Container { get; set; }
         private readonly MainLogic logic;
         private readonly IOrderLogic orderLogic;
-        public FormMain(MainLogic logic, IOrderLogic orderLogic)
+        private readonly ReportLogic report;
+        public FormMain(MainLogic logic, IOrderLogic orderLogic, ReportLogic report)
         {
             InitializeComponent();
             this.logic = logic;
             this.orderLogic = orderLogic;
+            this.report = report;
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
@@ -122,9 +125,21 @@ namespace AirPlaneFactoryView
             var form = Container.Resolve<FormProducts>();
             form.ShowDialog();
         }
-        private void buttonStorage_Click(object sender, EventArgs e)
-        {
 
+        private void списокКомпонентовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
+            { if (dialog.ShowDialog() == DialogResult.OK) { report.SaveComponentsToWordFile(new ReportBindingModel { FileName = dialog.FileName }); MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information); } }
+        }
+
+        private void компонентыПоИзделиямToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReportProductComponents>(); form.ShowDialog();
+        }
+
+        private void списокЗаказовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReportOredr>(); form.ShowDialog();
         }
     }
 }

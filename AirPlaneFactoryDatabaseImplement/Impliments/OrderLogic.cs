@@ -62,11 +62,15 @@ model.Id);
             using (var context = new AirPlaneFactoryDatabase())
             {
                 return context.Orders
-            .Include(rec => rec.Products)
-            .Where(rec => model == null || rec.Id == model.Id)
+            .Where(
+                    rec => model == null
+                    || (rec.Id == model.Id && model.Id.HasValue)
+                    || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo)
+                )
             .Select(rec => new OrderViewModel
             {
                 Id = rec.Id,
+                ProductId = rec.ProductId,
                 ProductName = rec.Products.ProductName,
                 Count = rec.Count,
                 Sum = rec.Sum,
@@ -79,3 +83,4 @@ model.Id);
         }
     }
 }
+
