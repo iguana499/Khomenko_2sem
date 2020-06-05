@@ -1,13 +1,13 @@
-﻿using AirPlaneFactoryBusinessLogic.BindingModels;
-using AirPlaneFactoryBusinessLogic.Interfaces;
-using AirPlaneFactoryBusinessLogic.ViewModels;
-using AirPlaneFactoryListImplement.Models;
+﻿using FurnitureShopBusinessLogic.BindingModels;
+using FurnitureShopBusinessLogic.Interfaces;
+using FurnitureShopBusinessLogic.ViewModels;
+using FurnitureShopListImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AirPlaneShopFileImplement.Implements
+namespace FurnitureShopFileImplement.Implements
 {
     public class OrderLogic : IOrderLogic
     {

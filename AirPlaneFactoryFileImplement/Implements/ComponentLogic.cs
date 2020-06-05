@@ -1,13 +1,13 @@
-﻿using AirPlaneFactoryBusinessLogic.BindingModels;
-using AirPlaneFactoryBusinessLogic.Interfaces;
-using AirPlaneFactoryBusinessLogic.ViewModels;
-using AirPlaneFactoryListImplement.Models;
+﻿using FurnitureShopBusinessLogic.BindingModels;
+using FurnitureShopBusinessLogic.Interfaces;
+using FurnitureShopBusinessLogic.ViewModels;
+using FurnitureShopListImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AirPlaneShopFileImplement.Implements
+namespace FurnitureShopFileImplement.Implements
 {
     public class ComponentLogic : IComponentLogic
     {
@@ -49,7 +49,7 @@ namespace AirPlaneShopFileImplement.Implements
             }
             else
             {
-                throw new Exception("Элемент не найден");
+            throw new Exception("Элемент не найден");
             }
         }
         public List<ComponentViewModel> Read(ComponentBindingModel model)

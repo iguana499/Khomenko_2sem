@@ -1,5 +1,5 @@
-﻿using AirPlaneFactoryBusinessLogic.Enums;
-using AirPlaneFactoryListImplement.Models;
+﻿using FurnitureShopBusinessLogic.Enums;
+using FurnitureShopListImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace AirPlaneShopFileImplement
+namespace FurnitureShopFileImplement
 {
     public class FileDataListSingleton
     {
@@ -93,7 +93,7 @@ namespace AirPlaneShopFileImplement
             if (File.Exists(ProductFileName))
             {
                 XDocument xDocument = XDocument.Load(ProductFileName);
-                var xElements = xDocument.Root.Elements("Product").ToList();
+            var xElements = xDocument.Root.Elements("Product").ToList();
                 foreach (var elem in xElements)
                 {
                     list.Add(new Product
@@ -145,7 +145,7 @@ namespace AirPlaneShopFileImplement
         {
             if (Orders != null)
             {
-                var xElement = new XElement("Orders");
+            var xElement = new XElement("Orders");
                 foreach (var order in Orders)
                 {
                     xElement.Add(new XElement("Order",
