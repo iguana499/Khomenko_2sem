@@ -92,19 +92,17 @@ namespace AirPlaneFactoryListImplement.Implements
             order.Sum = model.Sum;
             return order;
         }
-        private OrderViewModel CreateViewModel(Order order)
+        private OrderViewModel CreateViewModel(Order Order)
         {
-            var dressName = source.Products.FirstOrDefault((n) => n.Id == order.ProductId).ProductName;
-            return new OrderViewModel
+            string ProductName = "";
+            for (int j = 0; j < source.Products.Count; ++j)
             {
-                Id = order.Id,
-                Count = order.Count,
-                DateCreate = order.DateCreate,
-                DateImplement = order.DateImplement,
-                ProductName = dressName,
-                ProductId = order.ProductId,
-                Status = order.Status,
-                Sum = order.Sum
+                if (source.Products[j].Id == Order.ProductId)
+                {
+                    ProductName = source.Products[j].ProductName;
+                    break;
+                }
+            }
             };
         }
     }
