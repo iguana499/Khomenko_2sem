@@ -25,17 +25,13 @@ namespace AirPlaneFactoryListImplement.Implements
             };
             foreach (var order in source.Orders)
             {
-                if (order.DateCreate == model.DateCreate && order.Count == model.Count && order.ProductId == model.ProductId && order.Sum == model.Sum && order.Status == model.Status && order.Id != model.Id)
+                if (!model.Id.HasValue && Order.Id >= tempOrder.Id)
                 {
-                    throw new Exception("Такой заказ уже есть");
+                    tempOrder.Id = Order.Id + 1;
                 }
-                if (!model.Id.HasValue && order.Id >= tempOrder.Id)
+                else if (model.Id.HasValue && Order.Id == model.Id)
                 {
-                    tempOrder.Id = order.Id + 1;
-                }
-                else if (model.Id.HasValue && order.Id == model.Id)
-                {
-                    tempOrder = order;
+                    tempOrder = Order;
                 }
             }
             if (model.Id.HasValue)
